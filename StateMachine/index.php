@@ -7,19 +7,19 @@ require 'vendor/autoload.php';
 $application = new Account(new LoggedOutState());
 
 $application->logIn();
-$application->logIn();
+$application->logIn(); // This should fail
 $application->goToOptions();
 $application->makeDeposit();
-$application->makeTransfer();
+$application->makeTransfer(); // This should fail
 $application->goToOptions();
 $application->makeTransfer();
-$application->makeWithdrawal();
+$application->makeWithdrawal(); // This should fail
 $application->goToOptions();
 $application->makeWithdrawal();
-$application->checkBalance();
+$application->checkBalance(); // This should fail
 $application->goToOptions();
 $application->checkBalance();
-$application->logOut();
+$application->logOut(); // This should fail
 $application->goToOptions();
 $application->logOut();
-$application->logOut();
+$application->logOut(); // This should fail
