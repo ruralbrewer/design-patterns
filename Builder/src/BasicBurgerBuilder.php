@@ -28,12 +28,12 @@ class BasicBurgerBuilder implements BurgerBuilder
     /**
      * @var array
      */
-    private $toppings;
+    private $toppings = [];
 
     /**
      * @var array
      */
-    private  $condiments;
+    private  $condiments = [];
 
 
     public function setType(BurgerType $burgerType): BurgerBuilder

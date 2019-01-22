@@ -28,12 +28,12 @@ class BamBurgerBuilder implements BurgerBuilder
     /**
      * @var array
      */
-    private $toppings;
+    private $toppings = [];
 
     /**
      * @var array
      */
-    private  $condiments;
+    private  $condiments = [];
 
     public function __construct()
     {
