@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace BurgerBuilder;
 
@@ -18,6 +19,34 @@ $builder->setType(BurgerType::veggie())
 
 // $director = new BurgerDirector($builder);
 
-$burger = new Burger($builder);
+try {
+    echo "<strong>{$builder->title()}</strong><br/>";
+    $burger = $builder->build();
+    $burger->output();
+} catch (IncompleteBurgerException $exception) {
+    echo "*** {$exception->getMessage()}";
+}
 
-$burger->output();
+echo "<br /><br />";
+
+$builder = new BamBurgerBuilder();
+
+try {
+    echo "<strong>{$builder->title()}</strong><br/>";
+    $burger = $builder->build();
+    $burger->output();
+} catch (IncompleteBurgerException $exception) {
+    echo "*** {$exception->getMessage()}";
+}
+
+echo "<br /><br />";
+
+$builder = new BasicBurgerBuilder();
+
+try {
+    echo "<strong>{$builder->title()}</strong><br/>";
+    $burger = $builder->build();
+    $burger->output();
+} catch (IncompleteBurgerException $exception) {
+    echo "*** {$exception->getMessage()}";
+}

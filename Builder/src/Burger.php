@@ -33,15 +33,20 @@ class Burger
      */
     private $condiments;
 
-
-    public function __construct(BurgerBuilder $builder)
-    {
-        $this->type = $builder->type();
-        $this->temperature = $builder->cookTemperature();
-        $this->bread = $builder->bread();
-        $this->cheese = $builder->cheese();
-        $this->toppings = $builder->toppings();
-        $this->condiments = $builder->condiments();
+    public function __construct(
+        BurgerType $type,
+        Temperature $temperature,
+        Bread $bread,
+        Cheese $cheese,
+        ToppingCollection $toppings,
+        CondimentCollection $condiments
+    ) {
+        $this->type = $type;
+        $this->temperature = $temperature;
+        $this->bread = $bread;
+        $this->cheese = $cheese;
+        $this->toppings = $toppings;
+        $this->condiments = $condiments;
     }
 
     /**

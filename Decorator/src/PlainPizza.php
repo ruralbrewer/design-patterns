@@ -1,8 +1,7 @@
 <?php
-
+declare(strict_types=1);
 
 namespace PizzaDecorator;
-
 
 class PlainPizza extends PizzaRecipe
 {

@@ -1,8 +1,7 @@
 <?php
-
+declare(strict_types=1);
 
 namespace PizzaDecorator;
-
 
 class PizzaRecipe
 {
@@ -12,17 +11,17 @@ class PizzaRecipe
     private $toppings;
 
     /**
-     * @var PizzaIngredient
+     * @var PizzaDecorator
      */
     private $combinedIngredients;
 
-    public function __construct(PizzaIngredient $baseIngredient, array $toppings)
+    public function __construct(PizzaDecorator $baseIngredient, array $toppings)
     {
         $this->combinedIngredients = $baseIngredient;
         $this->toppings = $toppings;
     }
 
-    public function decorate(): PizzaIngredient
+    public function decorate(): PizzaDecorator
     {
         $this->combineIngredients();
 
@@ -31,7 +30,7 @@ class PizzaRecipe
 
     private function combineIngredients()
     {
-        /** @var PizzaIngredient $topping */
+        /** @var PizzaDecorator $topping */
         foreach ($this->toppings as $topping)
         {
             $this->combinedIngredients = $topping->addTopping($this->combinedIngredients);

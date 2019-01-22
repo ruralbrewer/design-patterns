@@ -1,10 +1,9 @@
 <?php
-
+declare(strict_types=1);
 
 namespace PizzaDecorator;
 
-
-class Pepperoni extends AbstractPizzaDecorator
+class Pepperoni extends AbstractPizzaIngredient
 {
     public function __construct(int $cost)
     {

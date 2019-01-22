@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace BurgerBuilder;
 
-class BasicBurgerBuilder implements BurgerBuilder
+class BamBurgerBuilder implements BurgerBuilder
 {
     /**
      * @var BurgerType
@@ -34,6 +34,25 @@ class BasicBurgerBuilder implements BurgerBuilder
      * @var array
      */
     private  $condiments;
+
+    public function __construct()
+    {
+        // Adds Recipe Defaults
+        $this->type = BurgerType::beef();
+        $this->cookTemperature = Temperature::medium();
+        $this->bread = Bread::ciabatta();
+        $this->cheese = Cheese::cheddar();
+        $this->toppings = [
+            Topping::lettuce(),
+            Topping::tomato(),
+            Topping::onion(),
+            Topping::pickle()
+        ];
+        $this->condiments = [
+            Condiment::mayo()
+        ];
+
+    }
 
 
     public function setType(BurgerType $burgerType): BurgerBuilder
@@ -171,6 +190,6 @@ class BasicBurgerBuilder implements BurgerBuilder
 
     public function title(): string
     {
-        return "The Basic Burger";
+        return "The Bam Burger";
     }
 }

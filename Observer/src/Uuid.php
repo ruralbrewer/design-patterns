@@ -1,8 +1,7 @@
 <?php
+declare(strict_types=1);
 
 namespace EventObserver;
-
-use Exception;
 
 abstract class Uuid
 {
@@ -13,7 +12,7 @@ abstract class Uuid
 
     /**
      * @param string|null $value
-     * @throws Exception
+     * @throws \RuntimeException
      */
     public function __construct(string $value = null)
     {
@@ -21,8 +20,8 @@ abstract class Uuid
             try {
                 $value = $this->generate();
             }
-            catch (Exception $exception) {
-                throw new Exception('Could not create UUID');
+            catch (\Throwable $throwable) {
+                throw new \RuntimeException('Could not create UUID');
             }
         }
 
@@ -36,7 +35,7 @@ abstract class Uuid
 
     /**
      * @return string
-     * @throws Exception
+     * @throws \Exception
      */
     private function generate(): string
     {

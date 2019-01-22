@@ -1,10 +1,9 @@
 <?php
-
+declare(strict_types=1);
 
 namespace PizzaDecorator;
 
-
-abstract class AbstractPizzaDecorator implements PizzaIngredient
+abstract class AbstractPizzaIngredient implements PizzaDecorator
 {
     /**
      * @var int
@@ -12,11 +11,11 @@ abstract class AbstractPizzaDecorator implements PizzaIngredient
     protected $cost;
 
     /**
-     * @var PizzaIngredient
+     * @var PizzaDecorator
      */
     protected $topping;
 
-    public function addTopping(PizzaIngredient $topping): PizzaIngredient
+    public function addTopping(PizzaDecorator $topping): PizzaDecorator
     {
         $this->topping = $topping;
 

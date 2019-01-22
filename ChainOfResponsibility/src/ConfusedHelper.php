@@ -1,8 +1,7 @@
 <?php
-
+declare(strict_types=1);
 
 namespace HelpChain;
-
 
 class ConfusedHelper extends AbstractHelper
 {
