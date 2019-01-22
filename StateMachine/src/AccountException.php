@@ -1,8 +1,10 @@
 <?php
 declare(strict_types=1);
 
+
 namespace StateMachine;
 
-class IllegalStateException extends \Exception
+
+class AccountException extends \Exception
 {
 }
