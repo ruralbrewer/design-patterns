@@ -3,23 +3,29 @@ declare(strict_types=1);
 
 namespace PizzaDecorator;
 
+use PizzaDecorator\Decorators\Cheese;
+use PizzaDecorator\Decorators\Dough;
+use PizzaDecorator\Decorators\Mushroom;
+use PizzaDecorator\Decorators\Pepperoni;
+use PizzaDecorator\Decorators\Sauce;
+use PizzaDecorator\Decorators\Sausage;
+
 require 'vendor/autoload.php';
 
 $toppingList = [
-    new Sauce(100),
-    new Cheese(250),
-    new Pepperoni(200),
-    new Mushroom(150)
+    new Sauce(),
+    new Cheese(),
+    new Pepperoni(),
+    new Mushroom(),
+    new Sausage()
 ];
 
-$recipe = new PizzaRecipe(new Dough(500), $toppingList);
+$pizza = new Pizza(new Dough());
 
-//$recipe = new PlainPizza();
+foreach ($toppingList as $topping) {
+    $pizza->addIngredient($topping);
+}
 
-//$recipe = new MeatPizza();
-
-$pizza = new Pizza($recipe);
-
-echo "The cost of the pizza is: " . $pizza->cost() . "\n";
+echo "The cost of the pizza is: $" . $pizza->cost() . "\n";
 
 

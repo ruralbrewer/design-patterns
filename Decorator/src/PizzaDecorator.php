@@ -5,6 +5,6 @@ namespace PizzaDecorator;
 
 interface PizzaDecorator
 {
-    public function cost(): int;
-    public function addTopping(PizzaDecorator $topping): PizzaDecorator;
+    public function costInCents(): int;
+    public function addDecorator(PizzaDecorator $decorator): PizzaDecorator;
 }

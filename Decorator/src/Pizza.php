@@ -6,28 +6,24 @@ namespace PizzaDecorator;
 class Pizza
 {
     /**
-     * @var PizzaRecipe
+     * @var PizzaDecorator
      */
-    private $recipe;
+    private $combinedIngredients;
 
-    /**
-     * @var string
-     */
-    private $monetary_format;
-
-
-    public function __construct(PizzaRecipe $recipe, string $monetary_format = 'en_US')
+    public function __construct(PizzaDecorator $baseIngredient)
     {
-        $this->recipe = $recipe;
-        $this->monetary_format = $monetary_format;
+        $this->combinedIngredients = $baseIngredient;
     }
 
-    public function cost(): string
+    public function addIngredient(PizzaDecorator $topping)
     {
-        setlocale(LC_MONETARY, $this->monetary_format);
+        $this->combinedIngredients->addDecorator($topping);
+    }
 
-        $combinedIngredients = $this->recipe->decorate();
+    public function cost()
+    {
+        $price = round(($this->combinedIngredients->costInCents()/100), 2);
 
-        return money_format(' %i', $combinedIngredients->cost() / 100);
+        return sprintf("%.2f", $price);
     }
 }
